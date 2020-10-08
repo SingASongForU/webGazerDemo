@@ -17,13 +17,13 @@ public class IndexController {
     }
 
     @RequestMapping("/sayHello")
+    @ResponseBody
     public String sayHello(){
         String result=webGazerService.sayHello();
         return result;
     }
 
     @RequestMapping("/hello")
-    @ResponseBody
     public String hello(){
         String result=webGazerService.hello();
         return result;
