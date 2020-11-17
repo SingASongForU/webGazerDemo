@@ -1,6 +1,7 @@
+window.localStorage.clear();
 webgazer.setGazeListener(function(data, elapsedTime) {
     if (data == null) {
-        console.log("训练中。。。")
+        console.log("Calibration First!Please click on your screen where your sight focus on!")
         return;
     }
     var xprediction = data.x; //these x coordinates are relative to the viewport
