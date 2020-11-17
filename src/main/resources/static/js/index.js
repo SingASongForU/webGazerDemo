@@ -1,4 +1,3 @@
-window.saveDataAcrossSessions(false);
 webgazer.setGazeListener(function(data, elapsedTime) {
     if (data == null) {
         console.log("训练中。。。")
