@@ -1,0 +1,1 @@
+keytool -genkeypair -alias webgazer_https -keypass 123456 -keyalg RSA -keysize 1024 -validity 365 -keystore C:\Users\zzc_lz\Desktop\XieFei\webgazer_https.keystore -storepass 123456
