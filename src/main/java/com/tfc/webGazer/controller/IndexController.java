@@ -22,6 +22,12 @@ public class IndexController {
         String result=webGazerService.sayHello();
         return result;
     }
+    
+    @RequestMapping("/demo")
+    public String demo(){
+        String result=webGazerService.demo();
+        return result;
+    }
 
     @RequestMapping("/hello")
     public String hello(){

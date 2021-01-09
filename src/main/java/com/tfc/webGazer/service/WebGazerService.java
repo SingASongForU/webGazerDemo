@@ -2,7 +2,6 @@ package com.tfc.webGazer.service;
 
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 
 @Service
 public class WebGazerService {
@@ -15,5 +14,9 @@ public class WebGazerService {
 
     public String hello(){
         return "hello";
+    }
+    
+    public String demo(){
+        return "demo";
     }
 }
