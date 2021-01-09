@@ -19,4 +19,8 @@ public class WebGazerService {
     public String demo(){
         return "demo";
     }
+
+    public String gazer(){
+        return "gazer";
+    }
 }

@@ -5,10 +5,11 @@
 }
 
 .box {
+    top: -130px;
     width: 540px;
     height: 800px;
     border: 1px solid gray;
-    margin: 100px auto;
+    margin: 0 auto;
     /*超出部门隐藏*/
     overflow: hidden;
     position: relative;

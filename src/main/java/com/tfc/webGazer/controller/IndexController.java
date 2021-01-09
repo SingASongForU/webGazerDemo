@@ -41,4 +41,10 @@ public class IndexController {
         return result;
     }
 
+    @RequestMapping("/gazer")
+    public String getGazer(){
+        String result=webGazerService.gazer();
+        return result;
+    }
+
 }
