@@ -197,6 +197,7 @@
 
                 //根据坐标进行翻页 judgeNum_max以上说明视线在屏幕下方，judgeNum_min以下说明视线在屏幕上方
                 if(data!=null) {
+                    //视线落在下半区域，模拟拇指在手机屏幕向上滑动屏幕
                     if (data.y > judgeNum_max&&time_all%step_check==0) {
                         console.log("times_down:"+times_down);
                         times_down++;
@@ -213,6 +214,7 @@
                             clock_middle_begin=clock;
                             scrollDown(length);
                         }
+                        //视线落在上半区域，模拟拇指在屏幕向下滑动屏幕
                     } else if(data.y<judgeNum_min&&time_all%step_check==0) {
                         console.log(times_up);
                         times_up++;
@@ -229,6 +231,7 @@
                             clock_middle_begin=clock;
                             scrollUp(length);
                         }
+                        //视线落在中间区域，不做任何滑动操作，只统计坐标和模块
                     }else if(time_all%step_check==0){
                         console.log(times_middle);
                         times_up=0;

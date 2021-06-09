@@ -6,6 +6,9 @@ const step=2;
 const timeout=5;
 let time=0;
 
+/**
+ * 初始化视线校准button点击事件
+ */
 function initTrainButtons(){
 	for(let i=0;i<9;i++){
 		initTrainButton("position_eye"+i);
@@ -26,6 +29,10 @@ function initTrainButton(id){
 	});
 }
 
+/**
+ * 监听键盘按键，模拟对应操作
+ * @param event
+ */
 document.onkeydown=function(event){
 	let e = event || window.event || arguments.callee.caller.arguments[0];
 
@@ -46,6 +53,10 @@ document.onkeydown=function(event){
 
 };
 
+/**
+ * 模拟拇指向上滑动，展示页面下一页内容
+ * @param length
+ */
 function scrollDown(length){
 	picture_position_index++;
 	resetModelDisplay("down");
@@ -82,6 +93,10 @@ function resetModelDisplay(direction){
 		+getModelNameByIndex(picture_position_index,direction));
 }
 
+/**
+ * 模拟拇指向下滑动，展示上一页内容
+ * @param length
+ */
 function scrollUp(length){
 	if(picture_position_index>0){
 		picture_position_index--;
