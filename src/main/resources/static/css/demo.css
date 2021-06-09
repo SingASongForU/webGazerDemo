@@ -5,9 +5,9 @@
 }
 
 .box {
-    top: -130px;
+    top: -70px;
     width: 540px;
-    height: 800px;
+    height: 750px;
     border: 1px solid gray;
     margin: 0 auto;
     /*超出部门隐藏*/

@@ -6,6 +6,26 @@ const step=2;
 const timeout=5;
 let time=0;
 
+function initTrainButtons(){
+	for(let i=0;i<9;i++){
+		initTrainButton("position_eye"+i);
+	}
+}
+
+function initTrainButton(id){
+	let time_train=1;
+	$("#"+id).click(function () {
+		time_train++;
+		if(time_train==4){
+			alert("校准完毕！");
+			$("#"+id).hide();
+			checkReady++;
+		}else{
+			$("#"+id).text("请进行"+time_train+"次校准!");
+		}
+	});
+}
+
 document.onkeydown=function(event){
 	let e = event || window.event || arguments.callee.caller.arguments[0];
 
@@ -27,6 +47,8 @@ document.onkeydown=function(event){
 };
 
 function scrollDown(length){
+	picture_position_index++;
+	resetModelDisplay("down");
 	let border=time+length;
 	let scrollDownInterval=setInterval(function(){
 		if(time<border&&time>-1&&time<border_length){
@@ -39,8 +61,32 @@ function scrollDown(length){
 	},timeout);
 }
 
+function getModelNameByIndex(index,part) {
+	let indexModel=pictureData[index];
+	if(indexModel==null){
+		indexModel= pictureData["13"];
+	}
+	return randomModel(indexModel[part]);
+}
+
+function randomModel(line) {
+	let array=line.split("|");
+	if(array.length==1){
+		return array[0];
+	}
+	return array[Math.round(Math.random()*(array.length-1))];
+}
+
+function resetModelDisplay(direction){
+	$("#app_desc").html("&nbsp;&nbsp;&nbsp;&nbsp;关注模块："
+		+getModelNameByIndex(picture_position_index,direction));
+}
 
 function scrollUp(length){
+	if(picture_position_index>0){
+		picture_position_index--;
+		resetModelDisplay("up");
+	}
 	let border=time-length;
 	let scrollUpInterval=setInterval(function(){
 		if(time>border&&time>0){
