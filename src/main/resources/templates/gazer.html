@@ -96,7 +96,7 @@
 <body>
 <canvas id="myCanvas"></canvas>
 <div id="prediction_board" class="board">
-    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实时视线坐标预测</h1>
+    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实时视线坐标</h1>
     <h1 id="prediction_x">&nbsp;&nbsp;&nbsp;&nbsp;X:&nbsp;0</h1>
     <h1 id="prediction_y">&nbsp;&nbsp;&nbsp;&nbsp;Y:&nbsp;0</h1>
     <h1 id="clock">&nbsp;&nbsp;&nbsp;&nbsp;C:&nbsp;0</h1>
@@ -105,7 +105,7 @@
     <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实时视线行为预测</h1>
     <h1 id="description">&nbsp;&nbsp;用户正在关注区域：判断中</h1>
     <h1 id="app_desc">&nbsp;&nbsp;关注模块：判断中</h1>
-    <h1 id="time">&nbsp;&nbsp;有效关注时间：&nbsp;0 ms</h1>
+    <h1 id="time">&nbsp;&nbsp;有效关注时间：&nbsp;0 μs</h1>
 </div>
 <div class="wrapper0">
     <button id="position_eye0" type="button" class="btn btn-info">校准0</button>
@@ -152,7 +152,7 @@
     let times_middle=0;
     let judgeNum_min=350;
     let judgeNum_max=550;
-    let sureNum=3;
+    let sureNum=2;
     let time_all=0;
     let clock_up_begin=0;
     let clock_down_begin=0;
@@ -208,7 +208,7 @@
                             $("#app_desc").html("&nbsp;&nbsp;&nbsp;&nbsp;关注模块："
                                 +getModelNameByIndex(picture_position_index,"down"));
                             $("#time").html("&nbsp;&nbsp;&nbsp;&nbsp;有效关注时间：&nbsp;"
-                                +Math.round((clock-clock_down_begin))+"ms");
+                                +Math.round((clock-clock_down_begin))+"μs");
                             times_down=0;
                             clock_up_begin=clock;
                             clock_middle_begin=clock;
@@ -225,7 +225,7 @@
                             $("#app_desc").html("&nbsp;&nbsp;&nbsp;&nbsp;关注模块："
                                 +getModelNameByIndex(picture_position_index,"up"));
                             $("#time").html("&nbsp;&nbsp;&nbsp;&nbsp;有效关注时间：&nbsp;"
-                                +Math.round((clock-clock_up_begin))+"ms");
+                                +Math.round((clock-clock_up_begin))+"μs");
                             times_up=0;
                             clock_down_begin=clock;
                             clock_middle_begin=clock;
@@ -242,18 +242,19 @@
                             $("#app_desc").html("&nbsp;&nbsp;&nbsp;&nbsp;关注模块："
                                 +getModelNameByIndex(picture_position_index,"middle"));
                             $("#time").html("&nbsp;&nbsp;&nbsp;&nbsp;有效关注时间：&nbsp;"
-                            +Math.round((clock-clock_middle_begin))+"ms");
+                            +Math.round((clock-clock_middle_begin))+"μs");
                             times_up=0;
                             times_down=0;
                             times_middle=0;
                             clock_down_begin=clock;
                             clock_up_begin=clock;
+                            clock_middle_begin=clock;
                         }
                     }
                 }
             })
             .begin()
-            .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
+            .showPredictionPoints(true);/* shows a square every 100 milliseconds where current prediction is */
 
         var width = 320;
         var height = 240;
